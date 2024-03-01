@@ -51,10 +51,12 @@ export default function NavBar() {
     dispatch(getFacturas())
     dispatch(getInstructorUser())
     dispatch(postLocalStorage())
-    dispatch(getIdCoursesuser(user));
-    dispatch(GetFavoritos(user));
-    dispatch(getIdRatingCourses(user));
-    !carrito.length? dispatch(getToCarritoBd(user)): "nada"
+    if (user) {
+      dispatch(getIdCoursesuser(user));
+      dispatch(GetFavoritos(user));
+      dispatch(getIdRatingCourses(user));
+      !carrito.length? dispatch(getToCarritoBd(user)): "nada"
+    }
   }, [dispatch])
 
 

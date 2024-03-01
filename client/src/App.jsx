@@ -31,7 +31,7 @@ import MiPerfil from './Pages/Profile/perfilusuarioindex';
 
 function App() {
 return (
-    <> 
+    <>
     <BrowserRouter>
       <NavBar/>
         <Routes>
@@ -45,19 +45,19 @@ return (
           <Route path="/LandingSeller" element={<LandingSeller/>}/>
           <Route path="/ResetPassword" element={<ResetPassword/>}/>
           <Route path="/MyCourses" element={<MyCourses/>}/>
-          <Route path="/Carrito" element={<Carrito />}/>  
-          <Route path="/Support" element={<Support/>}/> 
-          <Route path="/Terms" element={<Terms/>}/>   
-          <Route path="/PostArticle" element={<PostArticle/>}/> 
-          <Route path="/PostCourse" element={<PostCourse/>}/> 
-          <Route path="/SerchCardResults" element={<SerchCardResults/>}/> 
-          <Route path="/Purchaseconfirmation" element={<Purchaseconfirmation/>}/> 
-          <Route path="/Purchaserejection" element={<Purchaserejection/>}/> 
-          <Route path='/Article/:id' element={<Article/>}/> 
-          <Route path='/VendedorPublico/:id' element={<VendedorPublico/>}/> 
-          <Route path="/Pay" element={< Pay/>}/> 
+          <Route path="/Carrito" element={<Carrito />}/>
+          <Route path="/Support" element={<Support/>}/>
+          <Route path="/Terms" element={<Terms/>}/>
+          <Route path="/PostArticle" element={<PostArticle/>}/>
+          <Route path="/PostCourse" element={<PostCourse/>}/>
+          <Route path="/SerchCardResults" element={<SerchCardResults/>}/>
+          <Route path="/Purchaseconfirmation" element={<Purchaseconfirmation/>}/>
+          <Route path="/Purchaserejection" element={<Purchaserejection/>}/>
+          <Route path='/Article/:id' element={<Article/>}/>
+          <Route path='/VendedorPublico/:id' element={<VendedorPublico/>}/>
+          <Route path="/Pay" element={< Pay/>}/>
           <Route path="/Profile" element={<MiPerfil/>}/>
-          <Route path="/ProfileAdmin" element={< ProfileAdmin/>}/> 
+          <Route path="/ProfileAdmin" element={< ProfileAdmin/>}/>
           <Route path="*" element={<NotFound/>} />
         </Routes>
       <Footer/>

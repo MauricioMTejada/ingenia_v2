@@ -7,14 +7,17 @@ const cursos = require("./cursos");
 const articulos = require('./artuculos')
 
 const rellenarControllers = async () => {
+  console.log(`paso 00`);
   for (let i = 0; i < categorias.length; i++) {
     const name = categorias[i].name;
     const newCategory = await Category.create({ name });
   }
+  console.log(`paso 01`);
   for (let i = 0; i < instructores.length; i++) {
     const obj = instructores[i];
     const newInstr = await User.create(obj);
   }
+  console.log(`paso 02`);
   for (let i = 0; i < cursos.length; i++) {
     const {
       title,
@@ -32,6 +35,7 @@ const rellenarControllers = async () => {
       users,
       catego,
     } = cursos[i];
+    console.log(`paso 03`);
     const newCurso = await createCourse(
       title,
       description,
@@ -49,7 +53,7 @@ const rellenarControllers = async () => {
       catego
     );
   }
-
+  console.log(`paso 04`);
   for(let j = 0; j < articulos.length; j++){
     const idAr = articulos[j].idUser
     const titleAr = articulos[j].title
