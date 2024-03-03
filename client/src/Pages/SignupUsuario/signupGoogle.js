@@ -1,18 +1,22 @@
 import axios from "axios";
 import env from "../../../env";
 
-export default function signupGoogle(credentials, userType) {
+// Variable de retorno:
+let devolution = {
+  validate: false,
+  message: "",
+};
+
+export default async function signupGoogle(credentials, userType) {
   //De los datos recibidos, extraigo los datos que necesito enviar al Backend
   let data = credentials.user.auth.currentUser.providerData[0];
   data.emailVerified = credentials.user.auth.currentUser.emailVerified;
   delete data.phoneNumber;
   if (userType == "SignupUsuario") data.userType = "STUDENT";
   if (userType == "SignupVendedor") data.userType = "INSTRUCTOR";
-  console.log("userType", data.userType);
 
-  // Solicitud al servidor:
-  async function dataOwnAccessToBackent() {
-    console.log(data);
+  try {
+    // Solicitud al servidor:
     const response = await axios.post(
       `${env.VITE_HOST}/user/login/google`,
       data
@@ -34,7 +38,12 @@ export default function signupGoogle(credentials, userType) {
     if (response.data.user.Is == "INSTRUCTOR")
       localStorage.setItem("userType", "2");
     if (response.data.user.Is == "ADMIN") localStorage.setItem("userType", "3");
+
+    devolution.validate = true;
+  } catch (error) {
+    console.log(error.message);
+    // Manejar el error si la solicitud falla
   }
 
-  dataOwnAccessToBackent();
+  return devolution;
 }

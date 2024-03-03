@@ -28,11 +28,13 @@ import { VendedorPublico } from './Pages/Vendor/VendedorPublico';
 
 import { ProfileAdmin } from './Pages/ProfileAdmin/ProfileAdmin';
 import MiPerfil from './Pages/Profile/perfilusuarioindex';
+import { AdministrationOfUsers } from './Components/AdministrationOfUsers/AdministrationOfUsers';
 
 function App() {
 return (
     <>
     <BrowserRouter>
+      {/* <AdministrationOfUsers /> */}
       <NavBar/>
         <Routes>
           <Route exact path="/" element={<Home/>} />

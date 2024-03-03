@@ -15,11 +15,19 @@ const userPostGooHandler = async (req, res) => {
       userType,
     } = req.body;
 
+    // imprimir por consola:
+    // console.log(providerId);
+    // console.log(displayName);
+    // console.log(email);
+    // console.log(photoURL);
+    // console.log(emailVerified);
+    // console.log(userType);
+
     const verify = await verifyUserExistence(email, userType, providerId);
 
     const name = displayName.split(" ")[0];
 
-    console.log(name);
+    // console.log(name);
     const lastname = displayName.split(" ")[1];
 
     if (verify) {
@@ -30,7 +38,7 @@ const userPostGooHandler = async (req, res) => {
           throw new Error("Email no verificado");
         } else {
           const password = passwordRandom();
-          console.log(password);
+          // console.log(password);
           const passwordHash = await bcryptjs.hash(password, 8);
 
           const user = await userPostGoogleController(

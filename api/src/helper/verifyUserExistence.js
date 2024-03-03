@@ -7,7 +7,7 @@ const verifyUserExistence = async (email, userType, providerId) => {
   });
 
   if (user) {
-    console.log(user);
+    // console.log(user);
     if (user.dataValues.asset) {
       if (providerId === "google.com") {
         return { user: userDataForm(user) };
